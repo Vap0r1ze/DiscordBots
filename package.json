@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "A library for getting/posting stats/info on users and bots on discord bots list (https://discord.bots/pw) by /abalabahaha",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/vap0r1ze/DiscordBots.git"
@@ -28,9 +25,15 @@
     "javascriptlibrary"
   ],
   "author": "Vap0r1ze",
+  "contributors": [
+    "Gus Caplan <me@guscaplan.me>"
+  ],
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/vap0r1ze/DiscordBots/issues"
   },
-  "homepage": "https://github.com/vap0r1ze/DiscordBots#readme"
+  "homepage": "https://github.com/vap0r1ze/DiscordBots#readme",
+  "dependencies": {
+    "superagent": "^2.3.0"
+  }
 }

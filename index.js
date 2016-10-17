@@ -1,76 +1,40 @@
-const request = require("request")
+const superagent = require('superagent')
 
 class DiscordBots {
   constructor (token) {
     this.token = token
   }
 
-  getBotInfo (bot) {
+  apiRequest (method, path, body = {}) {
     return new Promise((resolve, reject) => {
-      request.get({
-        json: true,
-        uri: `https://bots.discord.pw/api/bots/${bot}`,
-        headers: {
-          'Authorization': this.token
-        }
-      }, (result, body, json) => {
-        resolve(json)
-      })
+      superagent[method](`https://bots.discord.pw/api${path}`)
+      .set('Authorization', this.token)
+      .send(body)
+      .end((err, res) => {
+        if (err) return reject(err);
+        return resolve(res.body);
+      });
     })
+  }
+
+  getBotInfo (bot) {
+    return this.apiRequest('get', `/bots/${bot}`);
   }
 
   getBotStats (bot) {
-    return new Promise((resolve, reject) => {
-      request.get({
-        json: true,
-        uri: `https://bots.discord.pw/api/bots/${bot}/stats`,
-        headers: {
-          'Authorization': this.token
-        }
-      }, (result, body, json) => {
-        resolve(json)
-      })
-    })
+    return this.apiRequest('get', `/bots/${bot}/stats`);
   }
 
   getAllBots (bot) {
-    return new Promise((resolve, reject) => {
-      request.get({
-        json: true,
-        uri: `https://bots.discord.pw/api/bots`,
-        headers: {
-          'Authorization': this.token
-        }
-      }, (result, body, json) => {
-        resolve(json)
-      })
-    })
+    return this.apiRequest('/');
   }
 
   postBotStats (bot, stats) {
-    return new Promise((resolve, reject) => {
-      request.post({
-        uri: `https://bots.discord.pw/api/bots/${bot}/stats`,
-        headers: {
-          'Authorization': this.token
-        },
-        json: stats
-      })
-    })
+    return this.apiRequest('post', `/bots/${bot}/stats`, stats);
   }
 
   getUserInfo (user) {
-    return new Promise((resolve, reject) => {
-      request.get({
-        json: true,
-        url: `https://bots.discord.pw/api/users/${user}`,
-        headers: {
-          'Authorization': this.token
-        }
-      }, (result, body, json) => {
-        resolve(json)
-      })
-    })
+    return this.apiRequest('get', `/users/${user}`)
   }
 }
 
