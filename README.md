@@ -59,7 +59,7 @@ dbots.postBotStats(stats)
 | stats | An object containing the bots statistics |
 | stats.server_count | The amount of guilds your bot is in |
 
-##### Returns [null]()
+##### Returns [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null)
 
 ---
 
