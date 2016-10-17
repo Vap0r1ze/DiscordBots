@@ -1,8 +1,11 @@
 {
   "name": "discordbots",
-  "version": "1.0.0",
-  "description": "A library for getting/posting stats/info on users and bots on discord bots list (https://discord.bots/pw) by /abalabahaha",
+  "version": "1.1.3",
+  "description": "A library for getting/posting stats/info on users and bots on discord bots list (https://discord.bots.pw/) by @abalabahaha",
   "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/vap0r1ze/DiscordBots.git"
@@ -24,6 +27,9 @@
     "jslib",
     "javascriptlibrary"
   ],
+  "dependencies": {
+    "superagent": "^2.3.0"
+  },
   "author": "Vap0r1ze",
   "contributors": [
     "Gus Caplan <me@guscaplan.me>"
@@ -33,7 +39,5 @@
     "url": "https://github.com/vap0r1ze/DiscordBots/issues"
   },
   "homepage": "https://github.com/vap0r1ze/DiscordBots#readme",
-  "dependencies": {
-    "superagent": "^2.3.0"
-  }
+  "readme": "# DiscordBots\nIn order to even use the library, you must first get an api token. These can be obtained by going to the [API site](https://bots.discord.pw/api).\n\n---\n\nFirst, you must create an instance of the module by doing this:\n```js\nconst DiscordBots = require('discordbots')\nconst token = 'API TOKEN'\nconst dbots = new DiscordBots(token)\n```\n\n---\n\n### getBotInfo\n\n```js\ndbots.getBotInfo(botid)\n```\n| Parameter | Description |\n| :---: | :---: |\n| botid | The user ID of the bot |\n\n##### Returns {[Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)<[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)>}\n\n---\n\n### getBotStats\n\n```js\ndbots.getBotStats(botid)\n```\n| Parameter | Description |\n| :---: | :---: |\n| botid | The user ID of the bot |\n\n##### Returns {[Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)<[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)>}\n\n---\n\n### getAllBots\n\n```js\ndbots.getAllBots()\n```\n\n##### Returns {[Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)<[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)>}\n\n---\n\n### postBotStats\n\n```js\ndbots.postBotStats(stats)\n```\n| Parameter | Description |\n| :---: | :---: |\n| botid | The id of the bot |\n| stats | An object containing the bots statistics |\n| stats.server_count | The amount of guilds your bot is in |\n\n##### Returns [null](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null)\n\n---\n\n### getUserInfo\n\n```js\ndbots.getUserInfo(userid)\n```\n| Parameter | Description |\n| :---: | :---: |\n| userid | The ID of the user |\n\n##### Returns {[Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)<[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)>}"
 }
